@@ -24,7 +24,7 @@ jobs:
         run: |
           apk add build-base git p7zip
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: |
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git fetch --prune --unshallow
