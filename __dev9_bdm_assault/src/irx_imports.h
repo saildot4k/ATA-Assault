@@ -1,0 +1,28 @@
+/*
+# Defines all IRX imports.
+*/
+
+#ifndef IOP_IRX_IMPORTS_H
+#define IOP_IRX_IMPORTS_H
+
+#include <irx.h>
+
+#include <bdm.h>
+#include <cdvdman.h>
+#include <dev9.h>
+#ifdef DEV9_ENABLE_AIF
+#include <aifdev9.h>
+#endif
+#include <dmacman.h>
+#include <ioman.h>
+#include <iomanX.h>
+#include <intrman.h>
+#include <loadcore.h>
+#include <stdio.h>
+#include <sysclib.h>
+#include <sysmem.h>
+#include <thbase.h>
+#include <thevent.h>
+#include <thsemap.h>
+
+#endif /* IOP_IRX_IMPORTS_H */

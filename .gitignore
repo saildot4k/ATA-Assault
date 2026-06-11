@@ -9,3 +9,6 @@
 # Executables
 *.irx
 *.7z
+
+# Local third-party sources
+/thirdparty/
