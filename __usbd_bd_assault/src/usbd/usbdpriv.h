@@ -16,6 +16,7 @@
 #ifndef __USBDPRIV_H__
 #define __USBDPRIV_H__
 
+#include "defs.h"
 #include "usbd.h"
 #include "types.h"
 

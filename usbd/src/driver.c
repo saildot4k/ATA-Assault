@@ -247,7 +247,7 @@ void callbackThreadFunc(void *arg)
 
                 if (reqCopy.userCallbackProc) {
 #if USE_GP_REGISTER
-                    SetGP(req->gpSeg);
+                    SetGP(reqCopy.gpSeg);
 #endif
                     reqCopy.userCallbackProc(reqCopy.resultCode, reqCopy.transferedBytes, reqCopy.userCallbackArg);
 #if USE_GP_REGISTER
