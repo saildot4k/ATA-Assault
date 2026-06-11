@@ -14,7 +14,6 @@
 #include <aifdev9.h>
 #endif
 #include <dmacman.h>
-#include <ioman.h>
 #include <iomanX.h>
 #include <intrman.h>
 #include <loadcore.h>

@@ -32,29 +32,21 @@ jobs:
       - name: Compile 
         run: |
           make -C libbdm clean all
-          make -C __bdm_assault/ clean all
-          make -C __usbd_bd_assault/ clean all
           make -C __dev9_bdm_assault/ clean all
           make -C __atad_bd_assault/ clean all
-          mkdir -p READY_TO_USE/POPStarter/POPSTARTER/
-          mkdir -p READY_TO_USE/FreeMcBoot/SYS-CONF/
           mkdir -p READY_TO_USE_ATA/POPStarter/POPSTARTER/
           mkdir -p READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/
-          cp bdm_assault.irx READY_TO_USE/POPStarter/POPSTARTER/usbd.irx
-          cp usbd_bd_assault.irx READY_TO_USE/POPStarter/POPSTARTER/usbhdfsd.irx
-          cp bdm_assault.irx READY_TO_USE/FreeMcBoot/SYS-CONF/USBD.IRX
-          cp usbd_bd_assault.irx READY_TO_USE/FreeMcBoot/SYS-CONF/USBHDFSD.IRX
           cp dev9_bdm_assault.irx READY_TO_USE_ATA/POPStarter/POPSTARTER/usbd.irx
           cp ata_bd_assault.irx READY_TO_USE_ATA/POPStarter/POPSTARTER/usbhdfsd.irx
           cp dev9_bdm_assault.irx READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/USBD.IRX
           cp ata_bd_assault.irx READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/USBHDFSD.IRX
-          7z a -t7z BDMAssault.7z *.irx LICENSE README.MD READY_TO_USE/* READY_TO_USE_ATA/*
+          7z a -t7z ATAAssault.7z *.irx LICENSE README.MD READY_TO_USE_ATA/*
 
       - name: Upload artifacts
         if: ${{ success() }}
         uses: actions/upload-artifact@v4
         with:
-          name: BDM_ASSAULT
+          name: ATA_ASSAULT
           path: |
             *.irx
 
@@ -67,4 +59,4 @@ jobs:
           automatic_release_tag: "latest"
           title: "Latest development build"
           files: |
-            BDMAssault.7z
+            ATAAssault.7z
