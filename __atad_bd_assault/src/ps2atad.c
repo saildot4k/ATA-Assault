@@ -45,6 +45,7 @@
 #include <atahw.h>
 
 #define MODNAME "atad"
+#define ATA_BDM_SETTLE_DELAY_US 1000000
 // TODO: last sdk 3.1.0 has ATAD module version 2.9 with significant changes.
 // Check what was changed, and maybe port changes.
 // CRC32: C2337807
@@ -380,6 +381,8 @@ int _start(int argc, char *argv[])
     }
 
     res = MODULE_RESIDENT_END;
+    /* Match PS2BBLE/OSDMenu's ATA transport settle window before mass:/ probes. */
+    DelayThread(ATA_BDM_SETTLE_DELAY_US);
     M_PRINTF("Driver loaded.\n");
 out:
     return res;
