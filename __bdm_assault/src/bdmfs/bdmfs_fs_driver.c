@@ -29,6 +29,8 @@
 #include "include/module_debug.h"
 
 #define U64_2XU32(val)  ((u32*)val)[1], ((u32*)val)[0]
+#define MASS_DRIVERNAME "mass"
+#define MASS_DRIVERNAME_IOCTL_RET ('m' | ('a' << 8) | ('s' << 16) | ('s' << 24))
 
 fatfs_fs_driver_mount_info fs_driver_mount_info[FF_VOLUMES];
 
@@ -694,11 +696,18 @@ int fs_ioctl2(iop_file_t *fd, int cmd, void *data, unsigned int datalen, void *r
             break;
         case USBMASS_IOCTL_GET_DRIVERNAME: {
             struct block_device *mounted_bd = fatfs_fs_driver_get_mounted_bd_from_index(fd->unit);
-            ret = (mounted_bd == NULL) ? -ENXIO : *(int *)(mounted_bd->name);
+            if (mounted_bd == NULL) {
+                ret = -ENXIO;
+                break;
+            }
 
-            // Check for a return buffer and copy the whole name.
-            if (rdata != NULL)
-                strncpy(rdata, mounted_bd->name, rdatalen);
+            ret = MASS_DRIVERNAME_IOCTL_RET;
+
+            // Fully masquerade as the legacy USB mass filesystem.
+            if (rdata != NULL && rdatalen > 0) {
+                strncpy((char *)rdata, MASS_DRIVERNAME, rdatalen);
+                ((char *)rdata)[rdatalen - 1] = '\0';
+            }
             break;
         }
         case USBMASS_IOCTL_CHECK_CHAIN:
