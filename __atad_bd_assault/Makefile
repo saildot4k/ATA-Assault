@@ -30,7 +30,7 @@ ATA_USE_DEV9 ?= 1
 # Enable to use the dev9/AIF interface
 ATA_USE_AIFDEV9 ?= 0
 
-IOP_BIN = ../ata_bd_assault.irx
+IOP_BIN = ../usbhdfsd.irx
 IOP_INCS += -Iinclude -I../__dev9_bdm_assault/include -I../bdm/include
 IOP_OBJS = ps2atad.o imports.o exports.o
 

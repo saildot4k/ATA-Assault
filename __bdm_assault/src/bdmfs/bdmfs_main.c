@@ -19,7 +19,7 @@
 
 static struct file_system g_fs = {
     .priv = NULL,
-    .name = "fatfs",
+    .name = "mass",
     .connect_bd = connect_bd,
     .disconnect_bd = disconnect_bd,
 };
@@ -29,11 +29,11 @@ int bdmfs_fatfs_start(int argc, char *argv[])
     (void)argc;
     (void)argv;
 
-    printf("BDM_ASSAULT: starting Fatfs side\n");
+    printf("USBHDFSD: starting mass filesystem\n");
 
     // initialize the file system driver
     if (InitFS() != 0) {
-        M_DEBUG("Error initializing FatFs driver!\n");
+        M_DEBUG("Error initializing mass filesystem driver!\n");
         return MODULE_NO_RESIDENT_END;
     }
 

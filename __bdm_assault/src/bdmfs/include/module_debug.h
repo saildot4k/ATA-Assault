@@ -2,7 +2,7 @@
 #define _MODULE_DEBUG_H
 
 
-#define M_PRINTF(format, args...) printf("FatFs: " format, ##args)
+#define M_PRINTF(format, args...) printf("USBHDFSD: " format, ##args)
 
 #ifdef DEBUG
 #define M_DEBUG M_PRINTF

@@ -171,7 +171,7 @@ static void bdm_thread(void *arg)
 
     (void)arg;
 
-    M_PRINTF("BDM event thread running\n");
+    M_PRINTF("mass event thread running\n");
 
     while (1) {
         WaitEventFlag(bdm_event, BDM_EVENT_CB_MOUNT | BDM_EVENT_CB_UMOUNT | BDM_EVENT_MOUNT, WEF_OR | WEF_CLEAR, &EFBits);

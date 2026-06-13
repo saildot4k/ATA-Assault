@@ -44,8 +44,7 @@
 #endif
 #include <atahw.h>
 
-#define MODNAME "atad"
-#define ATA_BDM_SETTLE_DELAY_US 1000000
+#define MODNAME "usbhdfsd"
 // TODO: last sdk 3.1.0 has ATAD module version 2.9 with significant changes.
 // Check what was changed, and maybe port changes.
 // CRC32: C2337807
@@ -54,7 +53,7 @@ IRX_ID(MODNAME, 2, 7);
 #define M_PRINTF(format, args...) \
     printf(MODNAME ": " format, ##args)
 
-#define BANNER  "ATA device driver %s - Copyright (c) 2003 Marcus R. Brown\n"
+#define BANNER  "USB HDD FileSystem Driver %s\n"
 #define VERSION "v1.2"
 
 #define ATA_XFER_MODE_PIO 0x08
@@ -355,8 +354,8 @@ int _start(int argc, char *argv[])
 
         for (i = 0; i < NUM_DEVICES; ++i) {
             g_ata_bd[i].priv         = (void *)&atad_devinfo[i];
-            /* BDMFS in this fork exposes the mounted filesystem as mass:/. */
-            g_ata_bd[i].name         = "ata";
+            /* Match the app-visible mass:/ identity at the BDM layer too. */
+            g_ata_bd[i].name         = "mass";
             g_ata_bd[i].devNr        = i;
             g_ata_bd[i].parNr        = 0;
             g_ata_bd[i].parId        = 0x00;
@@ -381,8 +380,6 @@ int _start(int argc, char *argv[])
     }
 
     res = MODULE_RESIDENT_END;
-    /* Match PS2BBLE/OSDMenu's ATA transport settle window before mass:/ probes. */
-    DelayThread(ATA_BDM_SETTLE_DELAY_US);
     M_PRINTF("Driver loaded.\n");
 out:
     return res;

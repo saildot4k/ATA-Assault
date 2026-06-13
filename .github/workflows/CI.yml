@@ -36,10 +36,10 @@ jobs:
           make -C __atad_bd_assault/ clean all
           mkdir -p READY_TO_USE_ATA/POPStarter/POPSTARTER/
           mkdir -p READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/
-          cp dev9_bdm_assault.irx READY_TO_USE_ATA/POPStarter/POPSTARTER/usbd.irx
-          cp ata_bd_assault.irx READY_TO_USE_ATA/POPStarter/POPSTARTER/usbhdfsd.irx
-          cp dev9_bdm_assault.irx READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/USBD.IRX
-          cp ata_bd_assault.irx READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/USBHDFSD.IRX
+          cp usbd.irx READY_TO_USE_ATA/POPStarter/POPSTARTER/usbd.irx
+          cp usbhdfsd.irx READY_TO_USE_ATA/POPStarter/POPSTARTER/usbhdfsd.irx
+          cp usbd.irx READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/USBD.IRX
+          cp usbhdfsd.irx READY_TO_USE_ATA/FreeMcBoot/SYS-CONF/USBHDFSD.IRX
           7z a -t7z ATAAssault.7z *.irx LICENSE README.MD READY_TO_USE_ATA/*
 
       - name: Upload artifacts

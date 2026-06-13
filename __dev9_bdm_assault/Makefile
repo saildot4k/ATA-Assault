@@ -1,4 +1,4 @@
-IOP_BIN = ../dev9_bdm_assault.irx
+IOP_BIN = ../usbd.irx
 
 # DEV9
 DEV9_SKIP_SMAP_INIT ?= 0
@@ -35,7 +35,7 @@ IOP_OBJS = ps2dev9.o ata_bdm_main.o $(addprefix bdm_,$(BDM_OBJS)) $(addprefix bd
 
 ifeq ($(DEBUG), 1)
   IOP_CFLAGS += -DDEBUG -DDEBUG_EXTREME
-  IOP_BIN = ../dev9_bdm_assault_debug.irx
+  IOP_BIN = ../usbd_debug.irx
 endif
 
 include ../global.make
