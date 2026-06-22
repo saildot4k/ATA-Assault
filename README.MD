@@ -46,3 +46,17 @@ the softwares found here were taken and modified from [__PS2SDK__](https://githu
 - @israpps for BDMA Assault
 - @PCM720 for much help over the last few years
 - @NathanNeurotic for harrasing me to get things done
+
+No Thanks to TnA-Plasitc:
+This message will remain until TnA is no longer a mod/admin/server of ANYTHING PS2 related. He has already been kicked as mod and user from multiple places for harassement and his disgusting behavior. Other PS2 related Discord servers have already taken steps and removed his discord server as a "Recommended Server".
+
+Reddit: r/PS2 - kicked as a moderator
+
+Discord: Perma-Bans
+
+PSX-Place (yet still allowed to be a mod at website!?)
+PS2 Homebrew
+PS2 Space
+Consolemods.org
+Athena PS2 System
+Bitfunx
