@@ -44,7 +44,7 @@ To use this project you have to place the two IRX binaries provided in the relea
 
 ## Incompatible programs
 
-- Simple Media System (SMS): incompatible due to usage of custom USB drivers and practices wich are not common amongst the homebrew devs. support not planned (and most likely not even possible)
+- Simple Media System (SMS): incompatible due to usage of custom USB drivers and practices which are not common amongst the homebrew devs. support not planned (and most likely not even possible)
 
 ## CREDITS
 
