@@ -43,6 +43,6 @@ To use this project you have to place the two IRX binaries provided in the relea
 
 the softwares found here were taken and modified from [__PS2SDK__](https://github.com/ps2dev/ps2sdk)
 
-- krHACKen: for letting me know POPStarter loads external USB drivers (wich ended up in the creation of this project)
-- juankytutoriales: for making tests in real hardware
-- everyone that collaborated to PS2SDK
+- @israpps for BDMA Assault
+- @PCM720 for much help over the last few years
+- @NathanNeurotic for harrasing me to get things done
