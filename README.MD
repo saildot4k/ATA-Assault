@@ -4,10 +4,10 @@ ATA Assault is a homebrew project for PS2 that packages ATA-backed BDM support i
 
 This tree builds:
 
-- `dev9_bdm_assault.irx`: DEV9 + BDM + BDMFS
-- `ata_bd_assault.irx`: ATAD block-device transport for BDM
+- `usbd.irx`: BDM + BDMFS mass filesystem
+- `usbhdfsd.irx`: DEV9 + ATAD block-device transport for BDM
 
-The split is after BDMFS. Load `dev9_bdm_assault.irx` first in the `USBD.IRX` slot, then load `ata_bd_assault.irx` second in the `USBHDFSD.IRX` slot. This keeps the ATA order as DEV9 -> BDM -> BDMFS -> ATA_BD.
+The split now follows the working BDM Assault load shape. Load `usbd.irx` first in the `USBD.IRX` slot, then load `usbhdfsd.irx` second in the `USBHDFSD.IRX` slot. This keeps the first slot free of DEV9/DMACMAN link requirements, while the second slot starts DEV9 and then connects ATAD to BDM as a `mass` block device.
 
 Even for ATA-backed storage, BDMFS registers the filesystem device as `mass`, so launched programs should receive `mass:/...` or `massN:/...` paths instead of `ata:/...`.
 
@@ -17,20 +17,20 @@ To use this project you have to place the two IRX binaries provided in the relea
 
 
 ### POPStarter
-- `dev9_bdm_assault.irx` must be pasted into `mc?:/POPSTARTER/usbd.irx`
-- `ata_bd_assault.irx` must be pasted into `mc?:/POPSTARTER/usbhdfsd.irx`
+- `usbd.irx` must be pasted into `mc?:/POPSTARTER/usbd.irx`
+- `usbhdfsd.irx` must be pasted into `mc?:/POPSTARTER/usbhdfsd.irx`
 
 ### FreeMcBoot
-- `dev9_bdm_assault.irx` must be pasted into `mc?:/SYS-CONF/USBD.IRX`
-- `ata_bd_assault.irx` must be pasted into `mc?:/SYS-CONF/USBHDFSD.IRX`
+- `usbd.irx` must be pasted into `mc?:/SYS-CONF/USBD.IRX`
+- `usbhdfsd.irx` must be pasted into `mc?:/SYS-CONF/USBHDFSD.IRX`
 
 ### FreeHdBoot
-- `dev9_bdm_assault.irx` must be pasted into `hdd0:__sysconf/FMCB/USBD.IRX`
-- `ata_bd_assault.irx` must be pasted into `hdd0:__sysconf/FMCB/USBHDFSD.IRX`
+- `usbd.irx` must be pasted into `hdd0:__sysconf/FMCB/USBD.IRX`
+- `usbhdfsd.irx` must be pasted into `hdd0:__sysconf/FMCB/USBHDFSD.IRX`
 
 ### old wLaunchELF versions
-- `dev9_bdm_assault.irx` must be pasted into the path you configured for `USBD.IRX`
-- `ata_bd_assault.irx` must be pasted into the path you configured for `USBHDFSD.IRX`
+- `usbd.irx` must be pasted into the path you configured for `USBD.IRX`
+- `usbhdfsd.irx` must be pasted into the path you configured for `USBHDFSD.IRX`
 
 ### Any other homebrew
 - find out by yourself. I cant remember any other.

@@ -69,7 +69,7 @@ static int ata_devinfo_init = 0;
 static int ata_evflg        = -1;
 
 // Workarounds
-static u8 ata_dvrp_workaround = 0; // Please read the comments in _start().
+static u8 ata_dvrp_workaround = 0; // Please read the comments in atad_start().
 #ifdef ATA_USE_DEV9
 #ifdef ATA_GAMESTAR_WORKAROUND
 static u8 ata_gamestar_workaround = 0;
@@ -260,7 +260,7 @@ static int ata_create_event_flag(void)
     return CreateEventFlag(&event);
 }
 
-int _start(int argc, char *argv[])
+int atad_start(int argc, char *argv[])
 {
 #ifdef ATA_USE_DEV9
     USE_SPD_REGS;
@@ -385,7 +385,7 @@ out:
     return res;
 }
 
-int _exit(void) { return MODULE_RESIDENT_END; }
+int atad_exit(void) { return MODULE_RESIDENT_END; }
 
 #ifdef ATA_USE_DEV9
 static int ata_intr_cb(int flag)

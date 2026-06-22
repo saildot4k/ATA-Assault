@@ -30,9 +30,16 @@ ATA_USE_DEV9 ?= 1
 # Enable to use the dev9/AIF interface
 ATA_USE_AIFDEV9 ?= 0
 
+# DEV9 is linked into this transport bundle, so ATAD calls it directly.
+DEV9_SKIP_SMAP_INIT ?= 0
+DEV9_PSX_SUPPORT ?= 1
+DEV9_GAMESTAR_WORKAROUND ?= 1
+DEV9_ENABLE_AIF ?= 0
+DEV9_REGISTER_DEVCTL ?= 0
+
 IOP_BIN = ../usbhdfsd.irx
 IOP_INCS += -Iinclude -I../__dev9_bdm_assault/include -I../bdm/include
-IOP_OBJS = ps2atad.o imports.o exports.o
+IOP_OBJS = ps2dev9.o ata_transport_main.o ps2atad.o imports.o exports.o
 
 ifeq ($(ATA_SCE_AUTH_HDD),1)
 IOP_CFLAGS += -DATA_SCE_AUTH_HDD=1
@@ -66,4 +73,28 @@ ifeq ($(ATA_USE_AIFDEV9),1)
 IOP_CFLAGS += -DATA_USE_AIFDEV9=1
 endif
 
+ifeq ($(DEV9_SKIP_SMAP_INIT),1)
+IOP_CFLAGS += -DDEV9_SKIP_SMAP_INIT=1
+endif
+
+ifeq ($(DEV9_PSX_SUPPORT),1)
+IOP_CFLAGS += -DDEV9_PSX_SUPPORT=1
+endif
+
+ifeq ($(DEV9_GAMESTAR_WORKAROUND),1)
+IOP_CFLAGS += -DDEV9_GAMESTAR_WORKAROUND=1
+endif
+
+ifeq ($(DEV9_ENABLE_AIF),1)
+IOP_CFLAGS += -DDEV9_ENABLE_AIF=1
+endif
+
+ifeq ($(DEV9_REGISTER_DEVCTL),1)
+IOP_CFLAGS += -DDEV9_REGISTER_DEVCTL=1
+endif
+
 include ../global.make
+
+$(IOP_OBJS_DIR)ps2dev9.o: ../__dev9_bdm_assault/src/ps2dev9.c
+	$(DIR_GUARD)
+	$(IOP_C_COMPILE) -c $< -o $@

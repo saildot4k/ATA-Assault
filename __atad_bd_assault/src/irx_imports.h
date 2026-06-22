@@ -15,6 +15,10 @@
 
 #include <irx.h>
 
+#ifndef DEV9_REGISTER_DEVCTL
+#define DEV9_REGISTER_DEVCTL 0
+#endif
+
 /* Please keep these in alphabetical order!  */
 #ifdef ATA_USE_AIFDEV9
 #include <aifdev9.h>
@@ -25,10 +29,17 @@
 #ifdef ATA_USE_DEV9
 #include <dev9.h>
 #endif
+#include <dmacman.h>
+#include <intrman.h>
+#if DEV9_REGISTER_DEVCTL
+#include <iomanX.h>
+#endif
 #include <loadcore.h>
 #include <stdio.h>
 #include <sysclib.h>
+#include <sysmem.h>
 #include <thbase.h>
 #include <thevent.h>
+#include <thsemap.h>
 
 #endif /* IOP_IRX_IMPORTS_H */

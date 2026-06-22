@@ -17,7 +17,12 @@
 #include <defs.h>
 #include <loadcore.h>
 #include <intrman.h>
+#ifndef DEV9_REGISTER_DEVCTL
+#define DEV9_REGISTER_DEVCTL 0
+#endif
+#if DEV9_REGISTER_DEVCTL
 #include <iomanX.h>
+#endif
 #include <dmacman.h>
 #include <thbase.h>
 #include <thsemap.h>
@@ -122,6 +127,7 @@ static int expbay_init(int sema_attr);
 
 extern struct irx_export_table _exp_dev9;
 
+#if DEV9_REGISTER_DEVCTL
 static int dev9x_devctl(iop_file_t *f, const char *name, int cmd, void *args, unsigned int arglen, void *buf, unsigned int buflen)
 {
     (void)f;
@@ -187,6 +193,7 @@ static iop_device_t dev9x_device =
         "DEV9",
         &dev9x_ops,
 };
+#endif
 
 static int print_help(void)
 { // The original made a printf() call for each line.
@@ -261,10 +268,12 @@ int dev9_start(int argc, char *argv[])
     if (res)
         return res;
 
+#if DEV9_REGISTER_DEVCTL
     DelDrv(dev9x_device.name);
     if (AddDrv(&dev9x_device) != 0) {
         return MODULE_NO_RESIDENT_END;
     }
+#endif
 
     return MODULE_RESIDENT_END;
 }

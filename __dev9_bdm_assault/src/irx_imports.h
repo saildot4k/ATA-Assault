@@ -9,12 +9,7 @@
 
 #include <bdm.h>
 #include <cdvdman.h>
-#include <dev9.h>
-#ifdef DEV9_ENABLE_AIF
-#include <aifdev9.h>
-#endif
-#include <dmacman.h>
-#include <iomanX.h>
+#include <ioman.h>
 #include <intrman.h>
 #include <loadcore.h>
 #include <stdio.h>
