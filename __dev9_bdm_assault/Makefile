@@ -3,7 +3,7 @@ IOP_BIN = ../usbd.irx
 # BDM
 BDM_OBJS = main.o bdm.o part_driver.o part_driver_mbr.o part_driver_gpt.o
 IOP_LIBS += ../libbdm/lib/libbdm.a
-IOP_CFLAGS += -Iinclude -I../libbdm/include/ -I../bdm/include -Wno-strict-aliasing
+IOP_CFLAGS += -Iinclude -I../libbdm/include/ -I../__bdm_assault/src/bdm -Wno-strict-aliasing
 
 # BDMFS_FATFS
 BDMFS_FATFS_OBJS = ff.o ffsystem.o ffunicode.o fs_driver.o diskio.o main.o

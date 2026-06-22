@@ -7,6 +7,13 @@ This tree builds:
 - `usbd.irx`: BDM + BDMFS mass filesystem
 - `usbhdfsd.irx`: DEV9 + ATAD block-device transport for BDM
 
+Active source layout:
+
+- `libbdm/`: shared BDM cache/defrag helpers
+- `__bdm_assault/`: BDM and BDMFS source used by the `usbd.irx` bundle
+- `__dev9_bdm_assault/`: `usbd.irx` bundle definition
+- `__atad_bd_assault/`: `usbhdfsd.irx` bundle definition
+
 The split now follows the working BDM Assault load shape. Load `usbd.irx` first in the `USBD.IRX` slot, then load `usbhdfsd.irx` second in the `USBHDFSD.IRX` slot. This keeps the first slot free of DEV9/DMACMAN link requirements, while the second slot starts DEV9 and then connects ATAD to BDM as a `mass` block device.
 
 Even for ATA-backed storage, BDMFS registers the filesystem device as `mass`, so launched programs should receive `mass:/...` or `massN:/...` paths instead of `ata:/...`.

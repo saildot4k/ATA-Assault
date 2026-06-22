@@ -10,7 +10,7 @@
 
 IOP_LIB = lib/libbdm.a
 
-IOP_INCS += -I../bdm/include
+IOP_INCS += -I../__bdm_assault/src/bdm
 IOP_OBJS = bd_defrag.o bd_cache.o
 
 

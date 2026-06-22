@@ -38,7 +38,7 @@ DEV9_ENABLE_AIF ?= 0
 DEV9_REGISTER_DEVCTL ?= 0
 
 IOP_BIN = ../usbhdfsd.irx
-IOP_INCS += -Iinclude -I../__dev9_bdm_assault/include -I../bdm/include
+IOP_INCS += -Iinclude -I../__dev9_bdm_assault/include -I../__bdm_assault/src/bdm
 IOP_OBJS = ps2dev9.o ata_transport_main.o ps2atad.o imports.o exports.o
 
 ifeq ($(ATA_SCE_AUTH_HDD),1)
