@@ -24,12 +24,12 @@ To use this project you have to place the two IRX binaries provided in the relea
 
 
 ### POPStarter
-- `usbd.irx` must be pasted into `mc?:/POPSTARTER/usbd.irx`
-- `usbhdfsd.irx` must be pasted into `mc?:/POPSTARTER/usbhdfsd.irx`
+- `usbd.irx` must be moved to `mc?:/POPSTARTER/usbd.irx`
+- `usbhdfsd.irx` must be moved to `mc?:/POPSTARTER/usbhdfsd.irx`
 
 ### FreeMcBoot
-- `usbd.irx` must be pasted into `mc?:/SYS-CONF/USBD.IRX`
-- `usbhdfsd.irx` must be pasted into `mc?:/SYS-CONF/USBHDFSD.IRX`
+- `usbd.irx` must be moved and renamed to `mc?:/SYS-CONF/USBD.IRX`
+- `usbhdfsd.irx` must be movedto `mc?:/SYS-CONF/USBHDFSD.IRX`
 
 ### FreeHdBoot
 - `usbd.irx` must be pasted into `hdd0:__sysconf/FMCB/USBD.IRX`
@@ -54,7 +54,8 @@ the softwares found here were taken and modified from [__PS2SDK__](https://githu
 - @PCM720 for much help over the last few years
 - @NathanNeurotic for harrasing me to get things done
 
-No Thanks to TnA-Plasitc:
+## No Thanks to TnA-Plasitc:
+
 This message will remain until TnA is no longer a mod/admin/server of ANYTHING PS2 related. He has already been kicked as mod and user from multiple places for harassement and his disgusting behavior. Other PS2 related Discord servers have already taken steps and removed his discord server as a "Recommended Server".
 
 Reddit: r/PS2 - kicked as a moderator
