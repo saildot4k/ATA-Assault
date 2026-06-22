@@ -1,3 +1,15 @@
+<br />
+<p align="center">
+  <a href="https://github.com/saildot4k/ATA-Assault/releases">
+    <img src="https://github.com/saildot4k/ATA-Assault/blob/main/ATA%20BDM%20Assault.png" alt="Logo" width="50%" height="auto">
+  </a>
+
+  <p align="center">
+    ATA drivers masquerading as usb drivers
+    <br />
+  </p>
+</p>  
+
 # ATA Assault
 
 ATA Assault is a homebrew project for PS2 that packages ATA-backed BDM support into the two external driver slots used by old closed source homebrew apps that can load external USB drivers.
