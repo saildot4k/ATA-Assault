@@ -62,7 +62,7 @@ To use this project you have to place the two IRX binaries provided in the relea
 
 the softwares found here were taken and modified from [__PS2SDK__](https://github.com/ps2dev/ps2sdk)
 
-- @israpps for BDMA Assault
+- @israpps for BDMA Assault, MMCE Assault and MX4SIO Assault
 - @PCM720 for much help over the last few years
 - @NathanNeurotic for harrasing me to get things done
 
